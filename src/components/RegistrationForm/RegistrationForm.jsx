@@ -1,6 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import css from "./RegistrationForm.module.css";
+import { Link } from "react-router-dom";
 
 const RegistrationForm = () => {
   const validationSchema = Yup.object({
@@ -8,20 +9,24 @@ const RegistrationForm = () => {
     email: Yup.string().email("Enter email please").required("Required"),
     password: Yup.string().min(7, "Min 7 characters").required("Required"),
   });
+  const initialValues = { name: "", email: "", password: "" };
+
+  const handleSubmit = (values, options) => {
+    console.log(values);
+    options.resetForm();
+  };
 
   return (
     <div className={css.formContainer}>
       <Formik
-        initialValues={{ name: "", email: "", password: "" }}
+        initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
+        onSubmit={handleSubmit}
       >
         <Form>
           <div className={css.formGroup}>
             <label className={css.label}>
-              Usermame:
+              Name:
               <Field type="text" name="name" className={css.input} />
               <ErrorMessage
                 name="name"
@@ -53,6 +58,9 @@ const RegistrationForm = () => {
                 className={css.errorMessage}
               />
             </label>
+          </div>
+          <div>
+            <Link to="/login">You already have account? Log in!</Link>
           </div>
 
           <button type="submit" className={css.submitButton}>
