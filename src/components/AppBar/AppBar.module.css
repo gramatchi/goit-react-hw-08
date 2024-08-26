@@ -1,0 +1,37 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: azure;
+    color: #ffffff;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .navLink {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .navLink:hover {
+    color: #ffc107;
+    text-decoration: underline;
+  }
+  
+  .authNav {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .userMenu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
