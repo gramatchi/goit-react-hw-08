@@ -1,11 +1,13 @@
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../../redux/contactsSlice";
 import { UserRound } from "lucide-react";
 import { FaPhoneAlt } from "react-icons/fa";
 import css from "./Contact.module.css";
+import { deleteContact } from "../../../redux/contactsOps";
 
 const Contact = ({ contact }) => {
+  
   const dispatch = useDispatch();
+
   return (
     <li className={css.contact}>
       <div className={css.contactDetails}>
