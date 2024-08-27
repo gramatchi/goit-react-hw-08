@@ -14,18 +14,17 @@ const clearAuthToken = () => {
 };
 
 export const registerThunk = createAsyncThunk(
-    "register",
-    async (credentials, thunkAPI) => {
-      try {
-        const { data } = await goitApi.post("users/signup", credentials);
-        setAuthToken(data.token);
-        return data;
-      } catch (error) {
-        // console.error("Registration Error: ", error.response.data); // Log the error response
-        return thunkAPI.rejectWithValue(error.response.data);
-      }
+  "register",
+  async (credentials, thunkAPI) => {
+    try {
+      const { data } = await goitApi.post("users/signup", credentials);
+      setAuthToken(data.token);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
     }
-  );
+  }
+);
 
 export const loginThunk = createAsyncThunk(
   "login",
@@ -40,15 +39,18 @@ export const loginThunk = createAsyncThunk(
   }
 );
 
-export const logoutThunk = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
-  try {
-    await goitApi.post("/users/logout");
+export const logoutThunk = createAsyncThunk(
+  "auth/logout",
+  async (_, thunkAPI) => {
+    try {
+      await goitApi.post("/users/logout");
 
-    clearAuthToken();
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+      clearAuthToken();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
+);
 
 export const refreshUserThunk = createAsyncThunk(
   "auth/refresh",

@@ -1,7 +1,5 @@
 const HomePage = () => {
-  return (
-    <div>Hi! This is the phonebook app</div>
-  )
-}
+  return <div>Hi! This is the phonebook app</div>;
+};
 
-export default HomePage
+export default HomePage;

@@ -6,8 +6,7 @@ import { useDispatch } from "react-redux";
 import { registerThunk } from "../../redux/auth/operations";
 
 const RegistrationForm = () => {
-
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const validationSchema = Yup.object({
     name: Yup.string().required("Required"),
     email: Yup.string().email("Enter email please").required("Required"),
@@ -16,7 +15,7 @@ const RegistrationForm = () => {
   const initialValues = { name: "", email: "", password: "" };
 
   const handleSubmit = (values, options) => {
-    dispatch(registerThunk(values))
+    dispatch(registerThunk(values));
     options.resetForm();
   };
 
