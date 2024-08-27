@@ -5,6 +5,7 @@ import { logoutThunk} from "../../redux/auth/operations";
 const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  
   return (
     <div>
       <p>Welcome, {user.name}</p>

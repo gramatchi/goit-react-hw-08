@@ -16,7 +16,6 @@ const RegistrationForm = () => {
   const initialValues = { name: "", email: "", password: "" };
 
   const handleSubmit = (values, options) => {
-    console.log(values);
     dispatch(registerThunk(values))
     options.resetForm();
   };

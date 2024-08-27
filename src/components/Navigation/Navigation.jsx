@@ -13,7 +13,7 @@ const Navigation = () => {
         Home
       </NavLink>
       {isLoggedIn && (
-        <NavLink to="/contacts" className={css.navLink}>
+        <NavLink className={css.navLink} to="/contacts">
           Contacts
         </NavLink>
       )}
