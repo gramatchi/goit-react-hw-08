@@ -14,17 +14,18 @@ const clearAuthToken = () => {
 };
 
 export const registerThunk = createAsyncThunk(
-  "register",
-  async (credentials, thunkAPI) => {
-    try {
-      const { data } = await goitApi.post("users/signup", credentials);
-      setAuthToken(data.token);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+    "register",
+    async (credentials, thunkAPI) => {
+      try {
+        const { data } = await goitApi.post("users/signup", credentials);
+        setAuthToken(data.token);
+        return data;
+      } catch (error) {
+        // console.error("Registration Error: ", error.response.data); // Log the error response
+        return thunkAPI.rejectWithValue(error.response.data);
+      }
     }
-  }
-);
+  );
 
 export const loginThunk = createAsyncThunk(
   "login",
