@@ -2,8 +2,12 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import css from "./RegistrationForm.module.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { registerThunk } from "../../redux/auth/operations";
 
 const RegistrationForm = () => {
+
+    const dispatch = useDispatch()
   const validationSchema = Yup.object({
     name: Yup.string().required("Required"),
     email: Yup.string().email("Enter email please").required("Required"),
@@ -13,6 +17,7 @@ const RegistrationForm = () => {
 
   const handleSubmit = (values, options) => {
     console.log(values);
+    dispatch(registerThunk(values))
     options.resetForm();
   };
 
