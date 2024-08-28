@@ -19,7 +19,7 @@ const persistConfig = {
   key: 'root',
   storage,
   version:1,
-  whitelist:['token','user', 'isLoggedIn']
+  whitelist:['token']
 };
 
 

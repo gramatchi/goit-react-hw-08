@@ -1,9 +1,5 @@
-import ContactList from "./components/ContactList/ContactList";
-import ContactForm from "./components/ContactForm/ContactForm";
-import SearchBox from "./components/SearchBox/SearchBox";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts } from "./redux/contacts/operations";
 import { Route, Routes } from "react-router-dom";
 
 import HomePage from "./pages/HomePage/HomePage";
@@ -20,6 +16,7 @@ import PublicRoute from "./components/PublicRoute/PublicRoute";
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
+
 
   useEffect(() => {
     dispatch(refreshUserThunk());

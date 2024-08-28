@@ -5,13 +5,14 @@ export const fetchContacts = createAsyncThunk(
   "contacts/fetchContacts",
   async (_, thunkApi) => {
     try {
-      const { data } = await goitApi.get("/contacts");
+      const { data } = await goitApi.get("contacts");      
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
   }
 );
+
 
 export const addContact = createAsyncThunk(
   "contacts/addContact",
